@@ -114,11 +114,16 @@ nav {
     padding: 2rem;
 }
 
-.hero h1 {
+.hero h2 {
     font-family: var(--serif-font);
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    margin-top: 150px;
+    margin-top: 175px;
+
+     @media (max-width: 482px) {
+        margin-top: 110px;
+        font-size: 27px;
+    }
 }
 
 /* Treatments Section */
@@ -209,6 +214,65 @@ nav {
     margin-bottom: 1rem;
 }
 
+/* FAQ Section */
+.faq {
+    padding: 6rem 2rem;
+    background-color: var(--background-color);
+}
+
+.faq h2 {
+    text-align: center;
+    font-family: var(--serif-font);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.faq-grid {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 1rem 0;
+}
+
+.faq-question h3 {
+    font-family: var(--serif-font);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.faq-toggle {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 1rem;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding-bottom: 1.5rem;
+}
+
 /* Footer */
 footer {
     background-color: var(--secondary-color);
@@ -256,6 +320,48 @@ footer {
     color: var(--primary-color);
 }
 
+/* Custom cursor styles */
+#custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+    display: none;
+}
+
+#custom-cursor-plus {
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    color: var(--primary-color);
+    font-size: 20px;
+    display: none;
+}
+
+@media (min-width: 769px) {
+    #custom-cursor,
+    #custom-cursor-plus {
+        display: block;
+    }
+}
+
+#custom-cursor.hover {
+    width: 40px;
+    height: 40px;
+}
+
+#custom-cursor-plus.hover {
+    opacity: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
@@ -285,6 +391,9 @@ footer {
     }
 }
 
+.maps {
+    padding-bottom: 100px;
+}
 .droit {
     margin-top: 20px;
     font-family: Montserrat, sans-serif;
